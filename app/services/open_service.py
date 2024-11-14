@@ -4,7 +4,8 @@ from app.utils.db_connection import db
 class OpenService:
     @staticmethod
     def get_all_data():
-        return OpenData.query.all()
+        data = OpenData.query.all()
+        return [item.to_dict() for item in data] 
 
     @staticmethod
     def create_data(data):
